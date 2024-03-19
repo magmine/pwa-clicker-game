@@ -4,3 +4,14 @@
     left: 0;
     width: 100%;
 }
+
+.merge_button {
+    color: white;
+    background-color: #1464a5;
+}
+
+.buy_auto_clicker_button {
+    display: block;
+    color: white;
+    background-color: #1464a5;
+}

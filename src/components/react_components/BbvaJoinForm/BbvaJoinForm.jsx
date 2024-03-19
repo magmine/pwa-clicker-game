@@ -6,6 +6,9 @@ const BbvaJoinForm = createComponent({
     tagName: "bbva-join-form",
     elementClass: JoinFormWC,
     react: React,
+    events: {
+        'onJoinClick': 'user-joined',
+    },
 });
 
 export default BbvaJoinForm;

@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import logo from '../../../public/logo.svg'
 import './App.css'
 import BbvaJoinForm from '../../components/react_components/BbvaJoinForm/BbvaJoinForm'
 
 function Home() {
+  const navigate = useNavigate();
+
+  const onJoined = () => {
+    navigate('/game');
+  }
 
   return (
     <>
@@ -13,7 +18,7 @@ function Home() {
         </a>
       </div>
       <h2>Create mew player</h2>
-      <BbvaJoinForm />
+      <BbvaJoinForm onJoinClick={onJoined}/>
     </>
   )
 }

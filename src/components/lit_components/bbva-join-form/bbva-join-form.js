@@ -12,7 +12,7 @@ export class JoinFormWC extends LitElement {
     return html`
       <form @submit=${this._onSubmit}>
         <bbva-input @username-input=${this._onUsernameInput}></bbva-input>
-        <bbva-button @on-click=${this._onJoinClick}></bbva-button>
+        <bbva-button @join-click=${this._onJoinClick}></bbva-button>
       </form>
     `;
   }
@@ -23,8 +23,13 @@ export class JoinFormWC extends LitElement {
     const isValid = usernameInput.validate();
 
     if (isValid) {
-      console.log('Username submitted:', this.username);
-      // Handle the successful submission here (e.g., API call)
+      this.dispatchEvent(
+        new CustomEvent('user-joined', {
+          detail: { username: this.username },
+          bubbles: true,
+          composed: true,
+        })
+      );
     } else {
       console.error('Validation failed');
       // Handle the error state as needed

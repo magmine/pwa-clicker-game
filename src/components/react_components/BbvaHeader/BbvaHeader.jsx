@@ -6,6 +6,9 @@ const BbvaHeader = createComponent({
     tagName: "bbva-header",
     elementClass: BbvaHeaderWC,
     react: React,
+    events: {
+        'onQuitGame': 'quit-game',
+    },
 });
 
 export default BbvaHeader;
