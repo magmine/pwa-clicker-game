@@ -7,7 +7,7 @@ import { storeUserData } from '../../services/indexedDB/dbUtility'
 
 
 function Game() {
-  const AUTO_CLICK_BASE_COST = 10;
+  const AUTO_CLICK_BASE_COST = 50;
   const navigate = useNavigate();
   const { userData, updateUserScore, updateBoughtItems } = useUserStore((state) => ({
     userData: state.userData,
