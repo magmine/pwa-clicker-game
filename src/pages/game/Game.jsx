@@ -20,6 +20,9 @@ function Game() {
   const autoClickerInterval = useRef(null);
 
   useEffect(() => {
+    if (!userData || !userData.id) {
+      navigate('/');
+    }
     if (numAutoClickers > 0) {
       clearInterval(autoClickerInterval.current); // Clear any existing interval
       autoClickerInterval.current = setInterval(() => {
@@ -29,6 +32,7 @@ function Game() {
     }
     return () => {
       clearInterval(autoClickerInterval.current);
+      storeUserData({ userData: userData});
     };
   }, [numAutoClickers, userData?.score]);
 
@@ -51,23 +55,29 @@ function Game() {
     setAutoClickerCost(newCost);
   };
 
+  const renderAutoClickerCost = () => {
+    return (
+      <button className={styles.buy_auto_clicker_button} onClick={onBoughtAutoClicker}>
+        Buy Auto Merger ({autoClickerCost})
+      </button>
+    );
+  };
+
   return (
     <>
       <header className={styles.header}>
-        <BbvaHeader username={userData?.id || 'Squid'} onQuitGame={onQuitGame}/>
+        <BbvaHeader username={userData?.id || ''} onQuitGame={onQuitGame}/>
       </header>
       <p>Merged pull requests: {pullRequests}</p>
       {numAutoClickers > 0 && <p>Auto mergers: {numAutoClickers}</p>}
-      <button className={styles.merge_button} onClick={onPullRequest}>
-        Merge
-      </button>
-      {
-        pullRequests >= autoClickerCost && (
-          <button className={styles.buy_auto_clicker_button} onClick={onBoughtAutoClicker}>
-            Buy Auto Merger ({autoClickerCost})
-          </button>
-        )
-      }
+      <div>
+        <button className={styles.merge_button} onClick={onPullRequest}>
+          Merge
+        </button>
+        {
+          pullRequests >= autoClickerCost && renderAutoClickerCost()
+        }
+      </div>
     </>
   )
 }

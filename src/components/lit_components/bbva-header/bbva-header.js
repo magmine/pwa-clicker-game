@@ -41,7 +41,7 @@ export class BbvaHeaderWC extends LitElement {
 
   constructor() {
     super();
-    this.username = 'Squid';
+    this.username = '';
   }
 
   render() {

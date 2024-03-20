@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { storeUserData } from '../services/indexedDB/dbUtility';
 const useUserStore = create((set, get) => ({
     userData: {
-        id: 'Squid',
+        id: '',
         score: 0,
         boughtItems: 0,
         highestScore: 0,
