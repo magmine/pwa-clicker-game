@@ -41,7 +41,7 @@ export class BbvaHeaderWC extends LitElement {
 
   constructor() {
     super();
-    this.username = 'User'; // Default username, replace or dynamically update as needed
+    this.username = 'Squid';
   }
 
   render() {
@@ -57,9 +57,6 @@ export class BbvaHeaderWC extends LitElement {
   }
 
   _onQuit() {
-    // Here, you can handle the logout logic, such as clearing session data
-    console.log('Logging out...');
-    // Emit a custom event if needed, for example:
     this.dispatchEvent(new CustomEvent('quit-game', { bubbles: true, composed: true }));
   }
 }

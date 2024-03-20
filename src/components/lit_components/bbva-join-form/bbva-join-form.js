@@ -18,7 +18,6 @@ export class JoinFormWC extends LitElement {
   }
 
   _onJoinClick() {
-    // Attempt to get the username-input element and validate it
     const usernameInput = this.shadowRoot.querySelector('bbva-input');
     const isValid = usernameInput.validate();
 
@@ -32,7 +31,6 @@ export class JoinFormWC extends LitElement {
       );
     } else {
       console.error('Validation failed');
-      // Handle the error state as needed
     }
   }
 
@@ -41,7 +39,6 @@ export class JoinFormWC extends LitElement {
   }
 
   _onSubmit(event) {
-    // Prevent the form from submitting normally
     event.preventDefault();
   }
 }

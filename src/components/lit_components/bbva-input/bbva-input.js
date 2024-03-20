@@ -104,19 +104,3 @@ export class BbvaInputWC extends LitElement {
 }
 
 customElements.define('bbva-input', BbvaInputWC);
-
-
-/**
- * <input
-        type="text"
-        tab-index="0"
-        id="username"
-        .type=${this.type}
-        .placeholder=${this.placeholder}
-        .value=${this.value}
-        aria-label=${ariaLabel}
-        required
-        .name=${this.placeholder}
-        @input=${this._onInput}
-      />
- */
